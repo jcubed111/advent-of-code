@@ -1,0 +1,2 @@
+scala.io.Source.fromFile("input.txt").mkString.split("\n\\$ ").toList.drop(1).map(_.split("\n").toList.map(_.split(" ").toList)).foldLeft(List("/")->List(""->0)){case(pwd->fs,List("ls")::output)=>pwd->output.map(_.head).filter(_!="dir").flatMap(s=>pwd.map(_->s.toInt)).++(fs)case((_::p)->fs,List("cd","..")::_)=>p->fs case(pwd->fs,List(_,to)::_)=>(pwd.head+to+"/"::pwd)->fs}._2.groupMapReduce(_._1)(_._2)(_+_).values match{case a=>println((a.filter(_<=1e5).sum,a.filter(_>=3e7-(7e7-a.max)).min))}
+// 1844187 // 4978279

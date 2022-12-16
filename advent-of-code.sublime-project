@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"build_systems": [
+        {
+            "name": "Run Scala",
+            "selector": "source.scala",
+            "cmd": [
+                "/Users/johnstimac/Library/Application Support/Coursier/bin/scala",
+                "-deprecation",
+                "$file",
+            ],
+            "working_dir": "$file_path"
+        }
+    ]
+}
